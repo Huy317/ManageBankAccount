@@ -33,11 +33,11 @@ public class ManageBankAccount {
           System.out.print("Account number to deposit: ");
           int num = sc.nextInt();
           boolean found = false;
-          for (int i = 0; i<n;i++){
-              if (num == accList.get(i).getAccNum()){
+          for (BankAccount i : accList){
+              if (num == i.getAccNum()){
                   System.out.print("Enter deposit amount: ");
                   double money = sc.nextDouble();
-                  accList.get(i).deposit(money);
+                  i.deposit(money);
                   found = true;
                   break;
               }
@@ -49,11 +49,11 @@ public class ManageBankAccount {
           System.out.print("Account number to withdraw: ");
           num = sc.nextInt();
           found = false;
-          for (int i = 0; i<n;i++){
-              if (num == accList.get(i).getAccNum()){
+          for (BankAccount i : accList){
+              if (num == i.getAccNum()){
                   System.out.print("Enter withdraw amount: ");
                   double money = sc.nextDouble();
-                  if (accList.get(i).withdraw(money) == true){
+                  if (i.withdraw(money) == true){
                       System.out.println("Withdrawal Successful");
                   }else{
                       System.out.println("Withdrawal Unsuccessful");
