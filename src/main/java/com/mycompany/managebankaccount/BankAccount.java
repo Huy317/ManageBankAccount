@@ -58,9 +58,9 @@ public class BankAccount {
         Scanner sc = new Scanner(System.in);
         System.out.print("Account Number: ");
         mAccNum = sc.nextInt();
+        sc.nextLine();
         System.out.print("FullName: ");
         mFullName = sc.nextLine();
-        sc.nextLine();
         System.out.print("Balance: ");
         mBalance = sc.nextDouble();
     }
