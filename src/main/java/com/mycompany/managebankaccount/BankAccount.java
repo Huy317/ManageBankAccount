@@ -45,6 +45,9 @@ public class BankAccount {
         }
     }    
     public boolean transferMoney(BankAccount acc, double money){
+        if (acc.getAccNum() == mAccNum){
+            return false;
+        }
         if (mBalance >= money){
             acc.deposit(money);
             mBalance -= money;

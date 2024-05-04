@@ -87,8 +87,13 @@ public class ManageBankAccount {
           System.out.print("Enter money to transfer: ");
           double money = sc.nextDouble();
           
-         accList.get(i1).transferMoney(accList.get(i2), money);
-         accList.get(i1).print();
-         accList.get(i2).print();
+          if (accList.get(i1).transferMoney(accList.get(i2), money) == true){
+              System.out.println("Transfer Successful");
+          }else{
+              System.out.println("Transfer Unsuccessful");
+          }
+          
+          accList.get(i1).print();
+          accList.get(i2).print();
     }
 }
