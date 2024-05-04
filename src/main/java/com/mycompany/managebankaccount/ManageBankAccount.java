@@ -18,14 +18,9 @@ public class ManageBankAccount {
           ArrayList<BankAccount> accList = new ArrayList<>();
           int n = sc.nextInt();
           for (int i = 0; i < n; i++){
-              System.out.print("Account Number: ");
-              int accNum = sc.nextInt();
-              System.out.print("FullName: ");
-              String fullName = sc.nextLine();
-              sc.nextLine();
-              System.out.print("Balance: ");
-              double balance = sc.nextDouble();
-              accList.add(new BankAccount(accNum,fullName,balance));
+              BankAccount newAcc = new BankAccount();
+              newAcc.Input();
+              accList.add(newAcc);
           }
           for (int i = 0; i<n;i++){
               accList.get(i).print();

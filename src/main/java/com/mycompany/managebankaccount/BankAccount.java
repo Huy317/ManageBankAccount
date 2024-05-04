@@ -4,6 +4,8 @@
  */
 package com.mycompany.managebankaccount;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Student
@@ -37,24 +39,30 @@ public class BankAccount {
         mBalance += money;
     }
     public boolean withdraw(double money){
-        if (mBalance >= money){
-            mBalance -= money;
-            return true;
-        }else{
-            return false;
-        }
+        if (money < 0) return false;
+        if (money > this.mBalance) return false;
+        mBalance -= money;
+        return true;
+       
     }    
     public boolean transferMoney(BankAccount acc, double money){
-        if (acc.getAccNum() == mAccNum){
-            return false;
-        }
-        if (mBalance >= money){
-            acc.deposit(money);
-            mBalance -= money;
-            return true;
-        }else{
-            return false;
-        }
+        if (acc.getAccNum() == mAccNum) return false;
+        if (money < 0) return false;
+        if (money > this.mBalance) return false;
+        acc.deposit(money);
+        mBalance -= money;
+        return true;
+    }
+    
+    public void Input(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Account Number: ");
+        mAccNum = sc.nextInt();
+        System.out.print("FullName: ");
+        mFullName = sc.nextLine();
+        sc.nextLine();
+        System.out.print("Balance: ");
+        mBalance = sc.nextDouble();
     }
     public void print(){
         System.out.println("Acc Num: "+mAccNum+"\nFullName: "+mFullName+"\nBalance: "+mBalance);
